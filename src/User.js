@@ -12,24 +12,8 @@ const Copy = () => {
     const { id } = useParams();
     let history = useHistory()
 
-    const submitForm = (e) => {
-        e.preventDefault();
-    }
-    useEffect(() => {
-        data()
-    }, [])
-    function data() {
-        if(id === null || id === undefined){
-            return false;
-        }else{
-            axios.get(`http://localhost:8500/get/${id}`, { headers: { 'x-access-token': token } }).then((res) => {
-                setname(res.data.data.name)
-                setEmail(res.data.data.email)
-                setphone(res.data.data.phone)
-                console.log("hbhj", res)
-            })
-        }
-    }
+    
+
     function updatebackenddat() {
 
         let item = {
@@ -37,8 +21,8 @@ const Copy = () => {
             email: email,
             phone: phone,
         }
-        axios.put(`http://localhost:8500/${id}`, item, { headers: { 'x-access-token': token } }).then((res) => {
-            console.log("data", res)
+        axios.post(`http://localhost:8500/adduser`, item, { headers: { 'x-access-token': token } }).then((res) => {
+            console.log("data", res.data)
         })
         history.push('/success')
 
@@ -51,7 +35,7 @@ const Copy = () => {
         <>
             <p class="oo" ><span>Add User </span></p>
 
-            <form class="MM" onSubmit={submitForm}>
+            <form class="MM">
                 <div class="bb">
                     <label htmlfor='name'>Enter Name:</label>
                     <input required type='text' name='name' value={name} onChange={(e) => setname(e.target.value)}></input>

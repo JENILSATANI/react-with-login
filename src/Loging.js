@@ -78,14 +78,7 @@ function Loging() {
 
         }
     }
-    // function submitfrom(){
-    //     if (email === ''|| password === '') {
-    //         console.log("ehee",submitfrom)
-    //         setErrors("Fields are required");
-    //         return false;
-    //       }
-          
-    // }
+  
     function postdata(e) {
         handleClick()
         e.preventDefault();
@@ -189,6 +182,10 @@ function Loging() {
                             <br />
                             <Grid align='center'>
                                 <Link to='/Reg'>New Register</Link>
+                            </Grid>    
+                              <br />
+                            <Grid align='center'>
+                                <Link to='/Mmm'>Forgot Password</Link>
                             </Grid>
                         </form>
                     </Paper>
